@@ -1,5 +1,5 @@
 name: currensee
-description: "A new Flutter project."
+description: "A currency conversion app by ABC Finance Ltd."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -31,6 +31,23 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # firebase
+  firebase_core: ^4.0.0
+  firebase_auth: ^6.0.0
+  cloud_firestore: ^6.0.0
+
+  # State management
+  flutter_riverpod: ^2.6.1
+
+  # Google signin
+  google_sign_in: ^6.2.1
+
+  # Local storage
+  shared_preferences: ^2.5.3
+  sqflite: ^2.3.3+1
+  path: ^1.9.0
+
+  fluttertoast: ^8.2.8
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
