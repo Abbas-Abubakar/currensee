@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1076247310676",
+    "project_id": "sustainable-guide",
+    "storage_bucket": "sustainable-guide.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076247310676:android:d9f7de186cc9cd5da5d8c1",
+        "android_client_info": {
+          "package_name": "com.example.currensee"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1076247310676-q1sit49kilkjjn3mm8d2qursgv72kv0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCNt69U7dfGzypHmfd3HZ8qR25Zort3u4w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1076247310676-q1sit49kilkjjn3mm8d2qursgv72kv0h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1076247310676-5htoau7e96ufurkblc63u980rdk59qq8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
