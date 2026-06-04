@@ -51,7 +51,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCNt69U7dfGzypHmfd3HZ8qR25Zort3u4w',
-    appId: '1:1076247310676:android:d9f7de186cc9cd5da5d8c1',
+    appId: '1:1076247310676:android:9ae1e0e7050576a1a5d8c1',
     messagingSenderId: '1076247310676',
     projectId: 'sustainable-guide',
     storageBucket: 'sustainable-guide.firebasestorage.app',
@@ -59,27 +59,27 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAxpGxOV-lj4jrCyBKhTOyDI4yUYK4omls',
-    appId: '1:1076247310676:ios:750f263b6498ec98a5d8c1',
+    appId: '1:1076247310676:ios:6c06728ae0d80a9da5d8c1',
     messagingSenderId: '1076247310676',
     projectId: 'sustainable-guide',
     storageBucket: 'sustainable-guide.firebasestorage.app',
-    iosClientId: '1076247310676-ipfv9jidpvldqa003kbrhq9ipagp27rp.apps.googleusercontent.com',
-    iosBundleId: 'com.example.currensee',
+    iosClientId: '1076247310676-tqg8kvtv4grdakjbp5bvpif6n5vtkbpq.apps.googleusercontent.com',
+    iosBundleId: 'com.example.sustainableLivingGuideApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyAxpGxOV-lj4jrCyBKhTOyDI4yUYK4omls',
-    appId: '1:1076247310676:ios:750f263b6498ec98a5d8c1',
+    appId: '1:1076247310676:ios:6c06728ae0d80a9da5d8c1',
     messagingSenderId: '1076247310676',
     projectId: 'sustainable-guide',
     storageBucket: 'sustainable-guide.firebasestorage.app',
-    iosClientId: '1076247310676-ipfv9jidpvldqa003kbrhq9ipagp27rp.apps.googleusercontent.com',
-    iosBundleId: 'com.example.currensee',
+    iosClientId: '1076247310676-tqg8kvtv4grdakjbp5bvpif6n5vtkbpq.apps.googleusercontent.com',
+    iosBundleId: 'com.example.sustainableLivingGuideApp',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyDF72q11-TnaUgfHX11HIKlE4LqNrcBpaE',
-    appId: '1:1076247310676:web:6c2a038f24a0b06aa5d8c1',
+    apiKey: 'AIzaSyDIZuhUKbaVeIfLCCSnW-3SAkcI4-H11dA',
+    appId: '1:1076247310676:web:4493846298b34df0a5d8c1',
     messagingSenderId: '1076247310676',
     projectId: 'sustainable-guide',
     authDomain: 'sustainable-guide.firebaseapp.com',
