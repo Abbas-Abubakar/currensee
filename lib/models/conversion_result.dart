@@ -1,5 +1,5 @@
-
 class ConversionResult {
+  final int? id;
   final String baseCurrency;
   final String targetCurrency;
   final double amount;
@@ -8,6 +8,7 @@ class ConversionResult {
   final DateTime date;
 
   const ConversionResult({
+    this.id,
     required this.baseCurrency,
     required this.targetCurrency,
     required this.amount,
@@ -30,6 +31,7 @@ class ConversionResult {
 
   factory ConversionResult.fromMap(Map<String, dynamic> map) {
     return ConversionResult(
+      id: map['id'] as int?,
       baseCurrency: map['base_currency'] as String,
       targetCurrency: map['target_currency'] as String,
       amount: map['amount'] as double,

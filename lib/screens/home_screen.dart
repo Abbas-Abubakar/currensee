@@ -1,11 +1,9 @@
-// lib/features/conversion/view/home_screen.dart
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:currensee/providers/auth_provider.dart';
-import 'package:currensee/screens/conversion_screen.dart';
+import 'package:currensee/screens//conversion_screen.dart';
+import 'package:currensee/screens/rates_screen.dart';
 
-// Placeholder screens — we'll replace these as we build each feature
 class _PlaceholderScreen extends StatelessWidget {
   final String title;
   const _PlaceholderScreen({required this.title});
@@ -34,7 +32,7 @@ class HomeScreen extends ConsumerWidget {
 
     final screens = [
       const ConversionScreen(),
-      const _PlaceholderScreen(title: 'Rates & History'),
+      const _RatesHistoryTabScreen(),       // ← combined tab
       const _PlaceholderScreen(title: 'Alerts'),
       const _PlaceholderScreen(title: 'Profile & Settings'),
     ];
@@ -46,10 +44,8 @@ class HomeScreen extends ConsumerWidget {
       ),
       bottomNavigationBar: NavigationBar(
         selectedIndex: selectedTab,
-        onDestinationSelected: (index) {
-          // Sign out on long press of profile tab (dev shortcut)
-          ref.read(_selectedTabProvider.notifier).state = index;
-        },
+        onDestinationSelected: (index) =>
+        ref.read(_selectedTabProvider.notifier).state = index,
         destinations: const [
           NavigationDestination(
             icon: Icon(Icons.currency_exchange_outlined),
@@ -72,6 +68,43 @@ class HomeScreen extends ConsumerWidget {
             label: 'Profile',
           ),
         ],
+      ),
+    );
+  }
+}
+
+// ─── Rates + History combined screen with top TabBar ─────────────────────
+class _RatesHistoryTabScreen extends StatelessWidget {
+  const _RatesHistoryTabScreen();
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        backgroundColor: const Color(0xFFF8F9FA),
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(48),
+          child: Container(
+            color: Colors.white,
+            child: const TabBar(
+              tabs: [
+                Tab(text: 'Exchange Rates'),
+                Tab(text: 'History'),
+              ],
+              labelColor: Color(0xFF1A73E8),
+              unselectedLabelColor: Color(0xFF5F6368),
+              indicatorColor: Color(0xFF1A73E8),
+              labelStyle: TextStyle(fontWeight: FontWeight.w600),
+            ),
+          ),
+        ),
+        body: const TabBarView(
+          children: [
+            RatesScreen(),
+
+          ],
+        ),
       ),
     );
   }
