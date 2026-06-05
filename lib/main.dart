@@ -1,3 +1,4 @@
+import 'package:currensee/screens/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -35,12 +36,7 @@ class CurrenSeeApp extends ConsumerWidget {
       home: authState.when(
         data: (user) {
           if (user != null) {
-            // Will replace with HomeScreen once built
-            return Scaffold(
-              body: Center(
-                child: Text('Welcome, ${user.email ?? 'User'}!'),
-              ),
-            );
+            return const HomeScreen();
           }
           return const LoginScreen();
         },
