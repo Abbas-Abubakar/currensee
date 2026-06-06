@@ -1,3 +1,4 @@
+import 'package:currensee/screens/history_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:currensee/providers/auth_provider.dart';
@@ -102,7 +103,7 @@ class _RatesHistoryTabScreen extends StatelessWidget {
         body: const TabBarView(
           children: [
             RatesScreen(),
-
+            HistoryScreen()
           ],
         ),
       ),
