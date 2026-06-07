@@ -56,7 +56,7 @@ class HistoryScreen extends ConsumerWidget {
     final isFiltered = baseFilter.isNotEmpty || targetFilter.isNotEmpty;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +67,7 @@ class HistoryScreen extends ConsumerWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
@@ -75,14 +75,14 @@ class HistoryScreen extends ConsumerWidget {
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF202124),
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                       ),
                       Text(
                         'Your past conversions',
                         style: TextStyle(
                           fontSize: 13,
-                          color: Color(0xFF5F6368),
+                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                         ),
                       ),
                     ],
@@ -268,23 +268,23 @@ class _FilterSheet extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: 16),
-          const Text(
+          Text(
             'Filter History',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF202124),
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
           const SizedBox(height: 20),
 
           // From currency filter
-          const Text(
+          Text(
             'From Currency',
             style: TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF5F6368),
+              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
             ),
           ),
           const SizedBox(height: 8),
@@ -321,12 +321,12 @@ class _FilterSheet extends ConsumerWidget {
           const SizedBox(height: 20),
 
           // To currency filter
-          const Text(
+          Text(
             'To Currency',
             style: TextStyle(
               fontSize: 13,
               fontWeight: FontWeight.w600,
-              color: Color(0xFF5F6368),
+              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
             ),
           ),
           const SizedBox(height: 8),
@@ -407,7 +407,7 @@ class _ChoiceChip extends StatelessWidget {
             fontSize: 13,
             fontWeight:
             selected ? FontWeight.w600 : FontWeight.normal,
-            color: selected ? Colors.white : const Color(0xFF202124),
+            color: selected ? Theme.of(context).cardTheme.color ?? Theme.of(context).colorScheme.surface : Theme.of(context).colorScheme.onSurface,
           ),
         ),
       ),

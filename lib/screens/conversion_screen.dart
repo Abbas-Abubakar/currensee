@@ -69,7 +69,7 @@ class _ConversionScreenState extends ConsumerState<ConversionScreen> {
     final user = ref.watch(currentUserProvider);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.all(20),
@@ -87,17 +87,17 @@ class _ConversionScreenState extends ConsumerState<ConversionScreen> {
                       children: [
                         Text(
                           'Hello, ${user?.fullName.split(' ').first ?? 'there'} 👋',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
-                            color: Color(0xFF202124),
+                            color: Theme.of(context).colorScheme.onSurface,
                           ),
                         ),
-                        const Text(
+                        Text(
                           'Convert currencies instantly',
                           style: TextStyle(
                             fontSize: 13,
-                            color: Color(0xFF5F6368),
+                            color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                           ),
                         ),
                       ],
@@ -125,7 +125,7 @@ class _ConversionScreenState extends ConsumerState<ConversionScreen> {
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Theme.of(context).cardTheme.color ?? Colors.white,
                     borderRadius: BorderRadius.circular(20),
                     boxShadow: [
                       BoxShadow(
@@ -142,10 +142,10 @@ class _ConversionScreenState extends ConsumerState<ConversionScreen> {
                         controller: _amountController,
                         keyboardType: const TextInputType.numberWithOptions(
                             decimal: true),
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 28,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF202124),
+                          color: Theme.of(context).colorScheme.onSurface,
                         ),
                         decoration: const InputDecoration(
                           hintText: '0.00',
@@ -307,9 +307,9 @@ class _CurrencyRow extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
-          color: const Color(0xFFF8F9FA),
+          color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.grey.shade200),
+          border: Border.all(color: Theme.of(context).dividerColor),
         ),
         child: Row(
           children: [
@@ -321,31 +321,30 @@ class _CurrencyRow extends StatelessWidget {
                 children: [
                   Text(
                     label,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 11,
-                      color: Color(0xFF5F6368),
+                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
                     ),
                   ),
                   Text(
                     code,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF202124),
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                   Text(
                     name,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
-                      color: Color(0xFF5F6368),
+                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
                     ),
                   ),
                 ],
               ),
             ),
-            const Icon(Icons.keyboard_arrow_down,
-                color: Color(0xFF1A73E8)),
+            const Icon(Icons.keyboard_arrow_down, color: Color(0xFF1A73E8)),
           ],
         ),
       ),

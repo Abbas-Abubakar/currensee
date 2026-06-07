@@ -17,6 +17,7 @@ class CurrencyListTile extends StatelessWidget {
     required this.onTap,
   });
 
+
   @override
   Widget build(BuildContext context) {
     final formatter = NumberFormat('#,##0.####');
@@ -28,7 +29,8 @@ class CurrencyListTile extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
         margin: const EdgeInsets.only(bottom: 8),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).cardTheme.color ??
+              Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
@@ -40,47 +42,41 @@ class CurrencyListTile extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // ─── Flag ───────────────────────────────────────────────────
             Text(currency.flagEmoji, style: const TextStyle(fontSize: 30)),
-
             const SizedBox(width: 14),
-
-            // ─── Code & Name ─────────────────────────────────────────────
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     currency.code,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
-                      color: Color(0xFF202124),
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(height: 2),
                   Text(
                     currency.name,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 12,
-                      color: Color(0xFF5F6368),
+                      color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
                     ),
                   ),
                 ],
               ),
             ),
-
-            // ─── Rate ────────────────────────────────────────────────────
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 rate != null
                     ? Text(
                   formatter.format(rate),
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 15,
-                    color: Color(0xFF202124),
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 )
                     : Container(
@@ -94,14 +90,13 @@ class CurrencyListTile extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   '1 $baseCurrencyCode',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 11,
-                    color: Color(0xFF5F6368),
+                    color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
                   ),
                 ),
               ],
             ),
-
             const SizedBox(width: 8),
             const Icon(Icons.chevron_right, color: Colors.grey, size: 20),
           ],

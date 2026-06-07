@@ -1,26 +1,11 @@
-import 'package:currensee/screens/history_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:currensee/providers/auth_provider.dart';
-import 'package:currensee/screens//conversion_screen.dart';
+import 'package:currensee/screens/alerts_screen.dart';
+import 'package:currensee/screens/conversion_screen.dart';
+import 'package:currensee/screens/history_screen.dart';
+import 'package:currensee/screens/news_screen.dart';
+import 'package:currensee/screens/profile_screen.dart';
 import 'package:currensee/screens/rates_screen.dart';
-
-class _PlaceholderScreen extends StatelessWidget {
-  final String title;
-  const _PlaceholderScreen({required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          title,
-          style: const TextStyle(fontSize: 18, color: Colors.grey),
-        ),
-      ),
-    );
-  }
-}
 
 final _selectedTabProvider = StateProvider<int>((ref) => 0);
 
@@ -33,9 +18,10 @@ class HomeScreen extends ConsumerWidget {
 
     final screens = [
       const ConversionScreen(),
-      const _RatesHistoryTabScreen(),       // ← combined tab
-      const _PlaceholderScreen(title: 'Alerts'),
-      const _PlaceholderScreen(title: 'Profile & Settings'),
+      const _RatesHistoryTabScreen(),
+      const AlertsScreen(),
+      const NewsScreen(),
+      const ProfileScreen(),
     ];
 
     return Scaffold(
@@ -64,6 +50,11 @@ class HomeScreen extends ConsumerWidget {
             label: 'Alerts',
           ),
           NavigationDestination(
+            icon: Icon(Icons.newspaper_outlined),
+            selectedIcon: Icon(Icons.newspaper),
+            label: 'News',
+          ),
+          NavigationDestination(
             icon: Icon(Icons.person_outline),
             selectedIcon: Icon(Icons.person),
             label: 'Profile',
@@ -74,7 +65,7 @@ class HomeScreen extends ConsumerWidget {
   }
 }
 
-// ─── Rates + History combined screen with top TabBar ─────────────────────
+// ─── Rates + History Tab Screen ───────────────────────────────────────────
 class _RatesHistoryTabScreen extends StatelessWidget {
   const _RatesHistoryTabScreen();
 
@@ -87,7 +78,7 @@ class _RatesHistoryTabScreen extends StatelessWidget {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(48),
           child: Container(
-            color: Colors.white,
+            color: Theme.of(context).cardTheme.color ?? Colors.white,
             child: const TabBar(
               tabs: [
                 Tab(text: 'Exchange Rates'),
@@ -103,7 +94,7 @@ class _RatesHistoryTabScreen extends StatelessWidget {
         body: const TabBarView(
           children: [
             RatesScreen(),
-            HistoryScreen()
+            HistoryScreen(),
           ],
         ),
       ),

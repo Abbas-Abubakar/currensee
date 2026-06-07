@@ -46,7 +46,7 @@ class _RatesScreenState extends ConsumerState<RatesScreen> {
     final searchQuery = ref.watch(currencySearchProvider);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,20 +57,20 @@ class _RatesScreenState extends ConsumerState<RatesScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'Exchange Rates',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF202124),
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(height: 4),
-                  const Text(
+                  Text(
                     'Live rates updated in real time',
                     style: TextStyle(
                       fontSize: 13,
-                      color: Color(0xFF5F6368),
+                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                     ),
                   ),
 
@@ -96,8 +96,8 @@ class _RatesScreenState extends ConsumerState<RatesScreen> {
                           const SizedBox(width: 8),
                           Text(
                             'Base: ${base.code}',
-                            style: const TextStyle(
-                              color: Colors.white,
+                            style: TextStyle(
+                              color: Theme.of(context).cardTheme.color ?? Theme.of(context).colorScheme.surface,
                               fontWeight: FontWeight.w600,
                               fontSize: 14,
                             ),
@@ -159,8 +159,8 @@ class _RatesScreenState extends ConsumerState<RatesScreen> {
                             selectedColor: const Color(0xFF1A73E8),
                             labelStyle: TextStyle(
                               color: isSelected
-                                  ? Colors.white
-                                  : const Color(0xFF202124),
+                                  ? Theme.of(context).cardTheme.color ?? Theme.of(context).colorScheme.surface
+                                  : Theme.of(context).colorScheme.onSurface,
                               fontWeight: isSelected
                                   ? FontWeight.w600
                                   : FontWeight.normal,

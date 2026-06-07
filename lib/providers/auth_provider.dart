@@ -17,7 +17,18 @@ final authStateProvider = StreamProvider<User?>((ref) {
 });
 
 // ─── Current AppUser Provider ─────────────────────────────────────────────
-final currentUserProvider = StateProvider<AppUser?>((ref) => null);
+final currentUserProvider = Provider<AppUser?>((ref) {
+  final authState = ref.watch(authStateProvider);
+  return authState.whenData((user) {
+    if (user == null) return null;
+    return AppUser(
+      uid: user.uid,
+      email: user.email ?? '',
+      fullName: user.displayName ?? 'User',
+      createdAt: DateTime.now(),
+    );
+  }).value;
+});
 
 // ─── Auth State Notifier ──────────────────────────────────────────────────
 class AuthNotifier extends StateNotifier<AsyncValue<void>> {
@@ -38,7 +49,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<void>> {
         password: password,
         fullName: fullName,
       );
-      _ref.read(currentUserProvider.notifier).state = user;
+      // ← remove: _ref.read(currentUserProvider.notifier).state = user;
       state = const AsyncValue.data(null);
       return true;
     } catch (e) {
@@ -57,7 +68,6 @@ class AuthNotifier extends StateNotifier<AsyncValue<void>> {
         email: email,
         password: password,
       );
-      _ref.read(currentUserProvider.notifier).state = user;
       state = const AsyncValue.data(null);
       return true;
     } catch (e) {
@@ -70,7 +80,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<void>> {
     state = const AsyncValue.loading();
     try {
       final user = await _authService.signInWithGoogle();
-      _ref.read(currentUserProvider.notifier).state = user;
+      // ← remove: _ref.read(currentUserProvider.notifier).state = user;
       state = const AsyncValue.data(null);
       return true;
     } catch (e) {
@@ -81,7 +91,7 @@ class AuthNotifier extends StateNotifier<AsyncValue<void>> {
 
   Future<void> signOut() async {
     await _authService.signOut();
-    _ref.read(currentUserProvider.notifier).state = null;
+    // ← remove: _ref.read(currentUserProvider.notifier).state = null;
     state = const AsyncValue.data(null);
   }
 
@@ -108,4 +118,34 @@ class AuthNotifier extends StateNotifier<AsyncValue<void>> {
 final authNotifierProvider =
 StateNotifierProvider<AuthNotifier, AsyncValue<void>>((ref) {
   return AuthNotifier(ref.watch(authServiceProvider), ref);
+});
+
+class CurrentUserNotifier extends StateNotifier<AppUser?> {
+  CurrentUserNotifier() : super(null);
+
+  void setUser(AppUser? user) => state = user;
+
+  void updateName(String name) {
+    if (state != null) state = state!.copyWith(fullName: name);
+  }
+
+  void updateDefaultCurrency(String code) {
+    if (state != null) state = state!.copyWith(defaultCurrency: code);
+  }
+}
+
+final currentUserNotifierProvider =
+StateNotifierProvider<CurrentUserNotifier, AppUser?>((ref) {
+  final notifier = CurrentUserNotifier();
+
+  // Set initial value once
+  final initial = ref.read(currentUserProvider);
+  notifier.setUser(initial);
+
+  // Listen for auth changes (e.g. sign-out) without rebuilding the notifier
+  ref.listen<AppUser?>(currentUserProvider, (_, next) {
+    notifier.setUser(next);
+  });
+
+  return notifier;
 });

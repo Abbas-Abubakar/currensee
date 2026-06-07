@@ -126,7 +126,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     final isLoading = authState is AsyncLoading;
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA),
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24),
