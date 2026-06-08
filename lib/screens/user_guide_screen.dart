@@ -129,10 +129,10 @@ class _SectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 17,
         fontWeight: FontWeight.bold,
-        color: Color(0xFF202124),
+        color: Theme.of(context).colorScheme.onSurface,
       ),
     );
   }

@@ -144,15 +144,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                       Container(
                         width: 80,
                         height: 80,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF1A73E8),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: const Icon(
-                          Icons.currency_exchange,
-                          color: Colors.white,
-                          size: 44,
-                        ),
+                        child: Image(image: AssetImage('images/app_icon.png'), width: 150, height: 150,)
                       ),
                       const SizedBox(height: 16),
                       const Text(
@@ -171,24 +163,33 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                           color: Color(0xFF5F6368),
                         ),
                       ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'By ABC Finance Ltd.',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                          letterSpacing: 0.5,
+                        ),
+                      ),
                     ],
                   ),
                 ),
 
                 const SizedBox(height: 40),
 
-                const Text(
+                Text(
                   'Welcome back',
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF202124),
+                    color: Theme.of(context).colorScheme.surface,
                   ),
                 ),
                 const SizedBox(height: 4),
-                const Text(
+                Text(
                   'Sign in to your account',
-                  style: TextStyle(fontSize: 14, color: Color(0xFF5F6368)),
+                  style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6)),
                 ),
 
                 const SizedBox(height: 32),
@@ -297,17 +298,17 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                         width: 22,
                         height: 22,
                         decoration: BoxDecoration(
-                          color: Colors.red,
+                          color:  Color(0xFF1A73E8),
                           borderRadius: BorderRadius.circular(4),
                         ),
-                        child: const Icon(Icons.g_mobiledata,
-                            color: Colors.white, size: 16),
+                        child: Icon(Icons.g_mobiledata,
+                            color: Theme.of(context).cardTheme.color ?? Theme.of(context).colorScheme.surface, size: 16),
                       ),
                       const SizedBox(width: 12),
-                      const Text(
+                      Text(
                         'Continue with Google',
                         style: TextStyle(
-                          color: Color(0xFF202124),
+                          color: const Color(0xFF1A73E8),
                           fontWeight: FontWeight.w500,
                           fontSize: 15,
                         ),
@@ -322,9 +323,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       "Don't have an account? ",
-                      style: TextStyle(color: Color(0xFF5F6368)),
+                      style: TextStyle(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6)),
                     ),
                     GestureDetector(
                       onTap: () => Navigator.push(

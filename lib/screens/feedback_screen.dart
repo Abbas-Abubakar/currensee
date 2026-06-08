@@ -153,7 +153,7 @@ class _FeedbackScreenState extends ConsumerState<FeedbackScreen> {
                       'Help us improve CurrenSee by sharing your experience.',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Colors.white.withOpacity(0.85),
+                        color: Colors.white.withValues(alpha: 0.85),
                         fontSize: 13,
                       ),
                     ),
@@ -164,12 +164,12 @@ class _FeedbackScreenState extends ConsumerState<FeedbackScreen> {
               const SizedBox(height: 28),
 
               // ─── Star Rating ─────────────────────────────────
-              const Text(
+              Text(
                 'Overall Rating',
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF202124),
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
               const SizedBox(height: 16),
@@ -202,12 +202,12 @@ class _FeedbackScreenState extends ConsumerState<FeedbackScreen> {
               const SizedBox(height: 28),
 
               // ─── Category ────────────────────────────────────
-              const Text(
+              Text(
                 'Feedback Category',
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF202124),
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
               const SizedBox(height: 12),
@@ -228,12 +228,12 @@ class _FeedbackScreenState extends ConsumerState<FeedbackScreen> {
               const SizedBox(height: 28),
 
               // ─── Message ─────────────────────────────────────
-              const Text(
+              Text(
                 'Your Comments',
                 style: TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF202124),
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
               const SizedBox(height: 10),
@@ -329,7 +329,7 @@ class _SuccessView extends StatelessWidget {
               width: 100,
               height: 100,
               decoration: BoxDecoration(
-                color: const Color(0xFF34A853).withOpacity(0.1),
+                color: const Color(0xFF34A853).withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: const Icon(
@@ -339,21 +339,21 @@ class _SuccessView extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            const Text(
+            Text(
               'Thank You! 🎉',
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF202124),
+                color: Theme.of(context).colorScheme.onSurface,
               ),
             ),
             const SizedBox(height: 12),
-            const Text(
+            Text(
               'Your feedback has been submitted successfully. We truly appreciate you taking the time to help us improve CurrenSee.',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 14,
-                color: Color(0xFF5F6368),
+                color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                 height: 1.6,
               ),
             ),

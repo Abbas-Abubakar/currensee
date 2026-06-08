@@ -1,5 +1,3 @@
-// lib/features/profile/view/widgets/profile_header.dart
-
 import 'package:flutter/material.dart';
 import 'package:currensee/models/user.dart';
 
@@ -33,7 +31,7 @@ class ProfileHeader extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 40,
-                backgroundColor: Colors.white.withOpacity(0.2),
+                backgroundColor: Colors.white.withValues(alpha: 0.2),
                 backgroundImage: user.photoUrl != null
                     ? NetworkImage(user.photoUrl!)
                     : null,
@@ -90,7 +88,7 @@ class ProfileHeader extends StatelessWidget {
           Text(
             user.email,
             style: TextStyle(
-              color: Colors.white.withOpacity(0.8),
+              color: Colors.white.withValues(alpha: 0.8),
               fontSize: 14,
             ),
           ),
@@ -102,7 +100,7 @@ class ProfileHeader extends StatelessWidget {
             padding:
             const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.15),
+              color: Colors.white.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Row(

@@ -48,7 +48,7 @@ class SupportScreen extends StatelessWidget {
                   Text(
                     'Find answers, guides, or reach out to our team.',
                     style: TextStyle(
-                      color: Colors.white.withOpacity(0.85),
+                      color: Colors.white.withValues(alpha: 0.85),
                       fontSize: 13,
                     ),
                   ),
@@ -59,12 +59,12 @@ class SupportScreen extends StatelessWidget {
             const SizedBox(height: 28),
 
             // ─── Support Options ───────────────────────────────────────
-            const Text(
+            Text(
               'SUPPORT OPTIONS',
               style: TextStyle(
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
-                color: Color(0xFF5F6368),
+                color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                 letterSpacing: 1.2,
               ),
             ),
@@ -127,7 +127,7 @@ class SupportScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.04),
+                    color: Colors.black.withValues(alpha: 0.04),
                     blurRadius: 6,
                     offset: const Offset(0, 2),
                   ),
@@ -136,54 +136,48 @@ class SupportScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    width: 60,
-                    height: 60,
-                    decoration: BoxDecoration(
-                      color: const Color(0xFF1A73E8),
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    child: const Icon(
-                      Icons.currency_exchange,
-                      color: Colors.white,
-                      size: 32,
-                    ),
+                    width: 100,
+                    height: 100,
+                    child: const Image(image: AssetImage('images/app_icon.png'), width: 100, height: 100,),
                   ),
                   const SizedBox(height: 12),
-                  const Text(
+                  Text(
                     'CurrenSee',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF202124),
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(height: 4),
-                  const Text(
+                  Text(
                     'Version 1.0.0',
                     style: TextStyle(
                       fontSize: 13,
-                      color: Color(0xFF5F6368),
+                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                     ),
                   ),
                   const SizedBox(height: 12),
-                  const Text(
+                  Text(
                     'CurrenSee is a smart currency conversion app developed by ABC Finance Ltd. Built to help individuals, travelers, and businesses manage currency conversions with ease.',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 13,
-                      color: Color(0xFF5F6368),
+                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                       height: 1.6,
                     ),
                   ),
                   const SizedBox(height: 16),
                   const Divider(),
                   const SizedBox(height: 8),
-                  const Text(
-                    '© 2024 ABC Finance Ltd. All rights reserved.',
-                    style: TextStyle(
-                      fontSize: 11,
-                      color: Color(0xFF5F6368),
-                    ),
+                  Text(
+                    'Commissioned & owned by ABC Finance Ltd.',
+                    style: TextStyle(fontSize: 11, color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6)),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    '© 2026 CurrenSee. All rights reserved.',
+                    style: TextStyle(fontSize: 11, color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6)),
                   ),
                 ],
               ),

@@ -35,7 +35,7 @@ class FeedbackCategoryChip extends StatelessWidget {
           boxShadow: selected
               ? [
             BoxShadow(
-              color: const Color(0xFF1A73E8).withOpacity(0.2),
+              color: const Color(0xFF1A73E8).withValues(alpha: 0.2),
               blurRadius: 8,
               offset: const Offset(0, 3),
             ),
@@ -53,7 +53,7 @@ class FeedbackCategoryChip extends StatelessWidget {
                 fontSize: 13,
                 fontWeight:
                 selected ? FontWeight.w600 : FontWeight.normal,
-                color: selected ? Colors.white : const Color(0xFF202124),
+                color: selected ? Theme.of(context).cardTheme.color ?? Theme.of(context).colorScheme.surface : Theme.of(context).colorScheme.onSurface,
               ),
             ),
           ],

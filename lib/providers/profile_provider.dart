@@ -47,7 +47,7 @@ class ProfileNotifier extends StateNotifier<AsyncValue<void>> {
       // Update local user state so ProfileHeader rebuilds
       _ref.read(currentUserNotifierProvider.notifier)
           .updateDefaultCurrency(currencyCode);
-
+      print('DEBUG user after update: ${_ref.read(currentUserNotifierProvider)?.defaultCurrency}');
       state = const AsyncValue.data(null);
     } catch (e) {
       state = AsyncValue.error(e, StackTrace.current);

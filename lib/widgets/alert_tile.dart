@@ -32,7 +32,7 @@ class AlertTile extends StatelessWidget {
           color: Colors.red.shade400,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: const Icon(Icons.delete_outline, color: Colors.white, size: 26),
+        child: Icon(Icons.delete_outline, color: Theme.of(context).cardTheme.color ?? Theme.of(context).colorScheme.surface, size: 26),
       ),
       confirmDismiss: (_) async {
         return await showDialog<bool>(
@@ -64,16 +64,16 @@ class AlertTile extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).cardTheme.color ?? Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
             color: alert.isActive
-                ? const Color(0xFF1A73E8).withOpacity(0.2)
+                ? const Color(0xFF1A73E8).withValues(alpha: 0.2)
                 : Colors.grey.shade200,
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.04),
+              color: Colors.black.withValues(alpha: 0.04),
               blurRadius: 6,
               offset: const Offset(0, 2),
             ),
@@ -116,10 +116,10 @@ class AlertTile extends StatelessWidget {
                 children: [
                   Text(
                     '${alert.baseCurrency} / ${alert.targetCurrency}',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 15,
-                      color: Color(0xFF202124),
+                      color: Theme.of(context).colorScheme.onSurface,
                     ),
                   ),
                   const SizedBox(height: 4),

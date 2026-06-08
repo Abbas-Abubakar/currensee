@@ -40,8 +40,8 @@ class SocialLoginButton extends StatelessWidget {
           const SizedBox(width: 12),
           Text(
             label,
-            style: const TextStyle(
-              color: Color(0xFF202124),
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.surface,
               fontWeight: FontWeight.w500,
               fontSize: 15,
             ),

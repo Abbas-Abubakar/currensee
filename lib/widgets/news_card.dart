@@ -1,5 +1,3 @@
-// lib/features/news/view/widgets/news_card.dart
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:currensee/models/news_article.dart';
@@ -107,7 +105,7 @@ class NewsCard extends StatelessWidget {
                       article.description!,
                       style: TextStyle(
                         fontSize: 13,
-                        color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                         height: 1.4,
                       ),
                       maxLines: 2,
@@ -126,7 +124,7 @@ class NewsCard extends StatelessWidget {
                             'By ${article.author}',
                             style: TextStyle(
                               fontSize: 11,
-                              color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+                              color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,

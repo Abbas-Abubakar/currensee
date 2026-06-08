@@ -125,6 +125,9 @@ class CurrentUserNotifier extends StateNotifier<AppUser?> {
 
   void setUser(AppUser? user) => state = user;
 
+  // Add this getter
+  AppUser? get currentState => state;
+
   void updateName(String name) {
     if (state != null) state = state!.copyWith(fullName: name);
   }
@@ -138,13 +141,20 @@ final currentUserNotifierProvider =
 StateNotifierProvider<CurrentUserNotifier, AppUser?>((ref) {
   final notifier = CurrentUserNotifier();
 
-  // Set initial value once
   final initial = ref.read(currentUserProvider);
   notifier.setUser(initial);
 
-  // Listen for auth changes (e.g. sign-out) without rebuilding the notifier
   ref.listen<AppUser?>(currentUserProvider, (_, next) {
-    notifier.setUser(next);
+    if (next == null) {
+      notifier.setUser(null);
+    } else {
+      final current = notifier.currentState;
+      // Only reset if there's no existing local state (i.e. fresh sign-in)
+      if (current == null) {
+        notifier.setUser(next);
+      }
+      // Otherwise keep the locally updated state — don't overwrite it
+    }
   });
 
   return notifier;

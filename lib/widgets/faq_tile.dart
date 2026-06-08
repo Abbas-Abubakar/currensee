@@ -59,7 +59,7 @@ class _FaqTileState extends State<FaqTile>
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.04),
+            color: Colors.black.withValues(alpha: 0.04),
             blurRadius: 6,
             offset: const Offset(0, 2),
           ),
@@ -79,10 +79,10 @@ class _FaqTileState extends State<FaqTile>
                   Expanded(
                     child: Text(
                       widget.question,
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.w600,
-                        color: Color(0xFF202124),
+                        color: Theme.of(context).colorScheme.onSurface,
                       ),
                     ),
                   ),

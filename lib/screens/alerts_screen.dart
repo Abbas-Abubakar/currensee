@@ -80,7 +80,7 @@ class AlertsScreen extends ConsumerWidget {
                         'Get notified at your target rate',
                         style: TextStyle(
                           fontSize: 13,
-                          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+                          color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                         ),
                       ),
                     ],
@@ -123,7 +123,7 @@ class AlertsScreen extends ConsumerWidget {
                 padding: const EdgeInsets.symmetric(
                     horizontal: 14, vertical: 10),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF1A73E8).withOpacity(0.07),
+                  color: const Color(0xFF1A73E8).withValues(alpha: 0.07),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(

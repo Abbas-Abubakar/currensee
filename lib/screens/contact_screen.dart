@@ -67,7 +67,7 @@ class _ContactScreenState extends ConsumerState<ContactScreen> {
                 padding: const EdgeInsets.all(14),
                 decoration: BoxDecoration(
                   color:
-                  const Color(0xFF1A73E8).withOpacity(0.08),
+                  const Color(0xFF1A73E8).withValues(alpha: 0.08),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
@@ -239,7 +239,7 @@ class _SuccessView extends StatelessWidget {
               width: 90,
               height: 90,
               decoration: BoxDecoration(
-                color: const Color(0xFF34A853).withOpacity(0.1),
+                color: const Color(0xFF34A853).withValues(alpha: 0.1),
                 shape: BoxShape.circle,
               ),
               child: const Icon(

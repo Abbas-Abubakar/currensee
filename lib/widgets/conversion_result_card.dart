@@ -25,7 +25,7 @@ class ConversionResultCard extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF1A73E8).withOpacity(0.3),
+            color: const Color(0xFF1A73E8).withValues(alpha: 0.3),
             blurRadius: 12,
             offset: const Offset(0, 6),
           ),
@@ -38,7 +38,7 @@ class ConversionResultCard extends StatelessWidget {
           Text(
             'You send',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.8),
+              color: Colors.white.withValues(alpha: 0.8),
               fontSize: 13,
             ),
           ),
@@ -54,14 +54,14 @@ class ConversionResultCard extends StatelessWidget {
 
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 16),
-            child: Divider(color: Colors.white.withOpacity(0.3)),
+            child: Divider(color: Colors.white.withValues(alpha: 0.3)),
           ),
 
           // ─── You Receive ──────────────────────────────────────────────
           Text(
             'You receive',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.8),
+              color: Colors.white.withValues(alpha: 0.8),
               fontSize: 13,
             ),
           ),
@@ -81,7 +81,7 @@ class ConversionResultCard extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.15),
+              color: Colors.white.withValues(alpha: 0.15),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Row(
@@ -107,7 +107,7 @@ class ConversionResultCard extends StatelessWidget {
           Text(
             'Rate as of ${DateFormat('MMM dd, yyyy • hh:mm a').format(result.date)}',
             style: TextStyle(
-              color: Colors.white.withOpacity(0.6),
+              color: Colors.white.withValues(alpha: 0.6),
               fontSize: 11,
             ),
           ),

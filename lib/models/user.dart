@@ -13,7 +13,7 @@ class AppUser {
     required this.email,
     required this.fullName,
     this.photoUrl,
-    this.defaultCurrency = 'USD',
+    this.defaultCurrency = 'EUR',
     required this.createdAt,
   });
 
@@ -23,7 +23,7 @@ class AppUser {
       email: map['email'] as String,
       fullName: map['fullName'] as String,
       photoUrl: map['photoUrl'] as String?,
-      defaultCurrency: map['defaultCurrency'] as String? ?? 'USD',
+      defaultCurrency: map['defaultCurrency'] as String? ?? 'EUR',
       createdAt: DateTime.fromMillisecondsSinceEpoch(
         map['createdAt'] as int,
       ),

@@ -83,8 +83,8 @@ class _AddAlertSheetState extends ConsumerState<AddAlertSheet> {
       ),
       child: Container(
         padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
-        decoration: const BoxDecoration(
-          color: Colors.white,
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardTheme.color ?? Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         ),
         child: Form(
@@ -106,12 +106,12 @@ class _AddAlertSheetState extends ConsumerState<AddAlertSheet> {
               ),
               const SizedBox(height: 16),
 
-              const Text(
+              Text(
                 'Create Rate Alert',
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF202124),
+                  color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
 
@@ -145,12 +145,12 @@ class _AddAlertSheetState extends ConsumerState<AddAlertSheet> {
               const SizedBox(height: 20),
 
               // ─── Direction Toggle ────────────────────────────────────────
-              const Text(
+              Text(
                 'Alert me when rate goes',
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF5F6368),
+                  color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                 ),
               ),
               const SizedBox(height: 10),
@@ -169,7 +169,7 @@ class _AddAlertSheetState extends ConsumerState<AddAlertSheet> {
                     child: _DirectionButton(
                       label: 'Below ↓',
                       selected: !_isAbove,
-                      color: const Color(0xFFEA4335),
+                      color: const Color(0xFF34A853),
                       onTap: () => setState(() => _isAbove = false),
                     ),
                   ),
@@ -179,12 +179,12 @@ class _AddAlertSheetState extends ConsumerState<AddAlertSheet> {
               const SizedBox(height: 20),
 
               // ─── Target Rate Input ───────────────────────────────────────
-              const Text(
+              Text(
                 'Target Rate',
                 style: TextStyle(
                   fontSize: 13,
                   fontWeight: FontWeight.w600,
-                  color: Color(0xFF5F6368),
+                  color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                 ),
               ),
               const SizedBox(height: 8),
@@ -254,7 +254,7 @@ class _CurrencySelector extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.all(12),
         decoration: BoxDecoration(
-          color: const Color(0xFFF8F9FA),
+          color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(color: Colors.grey.shade300),
         ),
@@ -262,8 +262,8 @@ class _CurrencySelector extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(label,
-                style: const TextStyle(
-                    fontSize: 11, color: Color(0xFF5F6368))),
+                style: TextStyle(
+                    fontSize: 11, color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6))),
             const SizedBox(height: 4),
             Row(
               children: [
@@ -310,10 +310,10 @@ class _DirectionButton extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 12),
         decoration: BoxDecoration(
-          color: selected ? color.withOpacity(0.1) : Colors.grey.shade100,
+          color: selected ? color.withValues(alpha: 0.1) : Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            color: selected ? color : Colors.grey.shade300,
+            color: selected ? color : Theme.of(context).dividerColor,
             width: selected ? 2 : 1,
           ),
         ),

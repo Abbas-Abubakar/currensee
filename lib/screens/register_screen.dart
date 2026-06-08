@@ -61,7 +61,7 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios, color: Color(0xFF202124)),
+          icon: Icon(Icons.arrow_back_ios, color: Theme.of(context).colorScheme.onSurface),
           onPressed: () => Navigator.pop(context),
         ),
       ),
@@ -76,18 +76,18 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 const SizedBox(height: 8),
 
                 // ─── Header ───────────────────────────────────────────────
-                const Text(
+                Text(
                   'Create Account',
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF202124),
+                    color: Theme.of(context).colorScheme.onSurface,
                   ),
                 ),
                 const SizedBox(height: 4),
-                const Text(
+                Text(
                   'Join CurrenSee today',
-                  style: TextStyle(fontSize: 14, color: Color(0xFF5F6368)),
+                  style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6)),
                 ),
 
                 const SizedBox(height: 36),
@@ -146,8 +146,8 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
 
                 // ─── Terms Note ───────────────────────────────────────────
                 RichText(
-                  text: const TextSpan(
-                    style: TextStyle(fontSize: 12, color: Color(0xFF5F6368)),
+                  text: TextSpan(
+                    style: TextStyle(fontSize: 12, color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6)),
                     children: [
                       TextSpan(text: 'By creating an account, you agree to our '),
                       TextSpan(
@@ -192,9 +192,9 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
+                    Text(
                       'Already have an account? ',
-                      style: TextStyle(color: Color(0xFF5F6368)),
+                      style: TextStyle(color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6)),
                     ),
                     GestureDetector(
                       onTap: () => Navigator.pop(context),

@@ -1,4 +1,5 @@
 
+import 'package:currensee/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter_android/webview_flutter_android.dart';
@@ -58,9 +59,7 @@ class CurrenSeeApp extends ConsumerWidget {
 
           return const LoginScreen();
         },
-        loading: () => const Scaffold(
-          body: Center(child: CircularProgressIndicator()),
-        ),
+        loading: () => const SplashScreen(),
         error: (_, __) => const LoginScreen(),
       ),
     );

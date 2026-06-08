@@ -41,8 +41,8 @@ class _CurrencyPickerSheetState extends State<CurrencyPickerSheet> {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.75,
-      decoration: const BoxDecoration(
-        color: Colors.white,
+      decoration: BoxDecoration(
+        color: Theme.of(context).cardTheme.color ?? Theme.of(context).colorScheme.surface,
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       child: Column(
@@ -60,12 +60,12 @@ class _CurrencyPickerSheetState extends State<CurrencyPickerSheet> {
           const SizedBox(height: 16),
 
           // ─── Title ─────────────────────────────────────────────────────
-          const Text(
+          Text(
             'Select Currency',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
-              color: Color(0xFF202124),
+              color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
 
