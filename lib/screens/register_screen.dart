@@ -36,15 +36,19 @@ class _RegisterScreenState extends ConsumerState<RegisterScreen> {
       fullName: _nameController.text,
     );
 
-    if (!success && mounted) {
+    if (!mounted) return;
+
+    if (success) {
+      // Pop RegisterScreen off the stack so the underlying HomeScreen (rendered by main.dart) is revealed!
+      Navigator.of(context).pop();
+    } else {
       final error = ref.read(authNotifierProvider.notifier).getErrorMessage();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(error ?? 'Registration failed. Please try again.'),
           backgroundColor: Colors.red.shade700,
           behavior: SnackBarBehavior.floating,
-          shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         ),
       );
     }

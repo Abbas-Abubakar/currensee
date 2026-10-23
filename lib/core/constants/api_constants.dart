@@ -1,11 +1,11 @@
 class ApiConstants {
   ApiConstants._();
 
-  static const String exchangeRateApiKey = '57d8121c58e208b8c2a1ae47';
+  static const exchangeRateApiKey = String.fromEnvironment('EXCHANGE_RATE_API_KEY', defaultValue: 'fallback_key');
   static const String exchangeRateBaseUrl =
       'https://v6.exchangerate-api.com/v6';
 
   // NewsAPI
-  static const String newsApiKey = '332587293a0548f68804fc8032d4d7d0';
+  static const String newsApiKey = String.fromEnvironment('NEWS_API_KEY');
   static const String newsApiBaseUrl = 'https://newsapi.org/v2';
 }

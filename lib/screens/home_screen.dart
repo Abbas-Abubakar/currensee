@@ -79,15 +79,20 @@ class _RatesHistoryTabScreen extends StatelessWidget {
           preferredSize: const Size.fromHeight(48),
           child: Container(
             color: Theme.of(context).cardTheme.color ?? Colors.white,
-            child: const TabBar(
-              tabs: [
-                Tab(text: 'Exchange Rates'),
-                Tab(text: 'History'),
-              ],
-              labelColor: Color(0xFF1A73E8),
-              unselectedLabelColor: Color(0xFF5F6368),
-              indicatorColor: Color(0xFF1A73E8),
-              labelStyle: TextStyle(fontWeight: FontWeight.w600),
+            child: SafeArea(
+              child: Container(
+                color: Theme.of(context).cardTheme.color ?? Colors.white,
+                child: const TabBar(
+                  tabs: [
+                    Tab(text: 'Exchange Rates'),
+                    Tab(text: 'History'),
+                  ],
+                  labelColor: Color(0xFF1A73E8),
+                  unselectedLabelColor: Color(0xFF5F6368),
+                  indicatorColor: Color(0xFF1A73E8),
+                  labelStyle: TextStyle(fontWeight: FontWeight.w600),
+                ),
+              ),
             ),
           ),
         ),

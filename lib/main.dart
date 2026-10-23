@@ -13,10 +13,13 @@ import 'package:currensee/core/theme/app_theme.dart';
 import 'package:currensee/providers/auth_provider.dart';
 import 'package:currensee/screens/login_screen.dart';
 import 'package:currensee/screens/home_screen.dart';
+import 'package:flutter/foundation.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  WebViewPlatform.instance = AndroidWebViewPlatform();
+  if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
+    WebViewPlatform.instance = AndroidWebViewPlatform();
+  }
 
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

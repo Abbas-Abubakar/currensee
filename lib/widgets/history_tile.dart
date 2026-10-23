@@ -67,7 +67,7 @@ class HistoryTile extends StatelessWidget {
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Colors.white,
+            color: Theme.of(context).cardTheme.color ?? Colors.white,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
@@ -107,19 +107,19 @@ class HistoryTile extends StatelessWidget {
                   // Pair
                   Text(
                     '${result.baseCurrency} → ${result.targetCurrency}',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
-                      color: Color(0xFF202124),
+                      color: Theme.of(context).colorScheme.surface,
                     ),
                   ),
                   const SizedBox(height: 4),
                   // Amount converted
                   Text(
                     '${amountFormatter.format(result.amount)} ${result.baseCurrency}  =  ${amountFormatter.format(result.convertedAmount)} ${result.targetCurrency}',
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 13,
-                      color: Color(0xFF5F6368),
+                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                     ),
                   ),
                   const SizedBox(height: 4),
@@ -143,10 +143,10 @@ class HistoryTile extends StatelessWidget {
               children: [
                 Text(
                   dateFormatter.format(result.date),
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.w600,
-                    color: Color(0xFF5F6368),
+                    color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
                   ),
                 ),
                 const SizedBox(height: 2),
